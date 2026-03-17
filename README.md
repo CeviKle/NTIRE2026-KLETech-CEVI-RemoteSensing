@@ -1,10 +1,10 @@
 # NTIRE 2026 Remote Sensing Infrared Image Super-Resolution (x4)
 
-## 🚀 Frequency-Assisted Mamba Super-Resolution Network (FreMamba)
+##  Frequency-Assisted Mamba Super-Resolution Network (FreMamba)
 
 ---
 
-## 📌 Introduction
+##  Introduction
 
 This repository presents our solution for the **NTIRE 2026 Challenge on Remote Sensing Infrared Image Super-Resolution (×4)**.
 
@@ -17,7 +17,7 @@ Our approach is based on a **Frequency-Assisted Vision State Space Model (FreMam
 
 ---
 
-## 🧠 Model Overview
+##  Model Overview
 
 The model consists of:
 - **Shallow feature extraction (Conv)**
@@ -30,7 +30,7 @@ The model consists of:
 
 ---
 
-## 🖼️ Architecture
+##  Architecture
 
 <p align="center">
   <img src="architecture.png" width="100%">
@@ -38,7 +38,7 @@ The model consists of:
 
 ---
 
-## ⚙️ Environment Setup
+##  Environment Setup
 
 ```bash
 conda create -n FreMamba python=3.9.13
@@ -49,7 +49,7 @@ pip install causal_conv1d==1.0.0
 pip install mamba_ssm==1.0.1
 
 pip install -r requirements.txt
-📁 Dataset Structure
+ Dataset Structure
 /NTIRE2026/C14_RemSenseISR/
 ├── train/
 │   ├── 0.png
@@ -62,7 +62,7 @@ pip install -r requirements.txt
 │       └── ...
 ├── val_LR_X4/
 │   └── X4/
-🏋️ Training
+ Training
 
 Training is performed using train_4x.py.
 
@@ -80,7 +80,7 @@ CUDA_VISIBLE_DEVICES=0 python train_4x.py \
 --nEpochs 300 \
 --pretrained True \
 --pretrained_sr path_to_checkpoint.pth
-🧪 Testing / Inference
+ Testing / Inference
 
 Testing is performed using test.py.
 
@@ -89,7 +89,7 @@ CUDA_VISIBLE_DEVICES=0 python test.py \
 --test_dir /path/to/test \
 --save_dir ./results \
 --model_id 0
-📊 Evaluation
+ Evaluation
 
 Evaluation is done using eval_4x.py or official eval.py.
 
@@ -100,7 +100,7 @@ python eval.py \
 --target_folder "/path/to/test/HR" \
 --metrics_save_path "./IQA_results" \
 --gpu_ids 0
-📈 Evaluation Metric
+ Evaluation Metric
 Score = PSNR + 20 × SSIM
 
 Computed on infrared intensity channel
@@ -109,7 +109,7 @@ Computed on infrared intensity channel
 
 Higher score = better performance
 
-🧪 Loss Function
+ Loss Function
 
 We use a combination of:
 
@@ -119,7 +119,7 @@ Charbonnier Loss → robust pixel-level reconstruction
 
 SSIM Loss → structural similarity preservation
 
-📦 Repository Structure
+ Repository Structure
 .
 ├── dataload/
 ├── model_archs/
@@ -130,7 +130,7 @@ SSIM Loss → structural similarity preservation
 ├── train_4x.py
 ├── requirements.txt
 └── README.md
-⚠️ Important Notes
+Important Notes
 
 Follow official NTIRE submission format
 
@@ -144,32 +144,17 @@ Add checkpoint inside:
 
 Remove unnecessary images before submission
 
-🏆 Key Highlights
+ Key Highlights
 
 ✔ Captures long-range dependencies (Mamba)
 ✔ Enhances high-frequency infrared details
 ✔ Efficient (linear complexity vs transformers)
 ✔ Designed specifically for infrared remote sensing
 
-📚 Citation
+ Citation
 @inproceedings{ntire2026rsirsrx4,
   title={NTIRE 2026 Challenge on Remote Sensing Infrared Image Super-Resolution (x4): Methods and Results},
   booktitle={CVPRW},
   year={2026}
 }
 
----
-
-# 🔥 Done — what you should do now
-
-1. Copy this → paste into `README.md`
-2. Put your architecture image as:
-
-architecture.png
-
-3. Push:
-
-```bash
-git add .
-git commit -m "Added README"
-git push
