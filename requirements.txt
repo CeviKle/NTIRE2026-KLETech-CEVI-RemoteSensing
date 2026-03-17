@@ -1,0 +1,6 @@
+CUDA 11.1
+Python 3.9.13
+PyTorch 1.9.1
+Torchvision 0.10.1
+causal_conv1d==1.0.0
+mamba_ssm==1.0.1
